@@ -1,21 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
-        int y = sc.nextInt();
-        int tmpInt = y;
-        List<Integer> tmp = new ArrayList<Integer>();
-        while(tmpInt>0){
-            tmp.add(tmpInt%10);
-            tmpInt /= 10;
-        }
-        for(int i = 0; i<tmp.size(); i++){
-            System.out.println(x*tmp.get(i));
-        }
-        System.out.println(x*y);
-    }
+ 
+public class Main{
+ 
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+ 
+		int A = in.nextInt();
+		int B = in.nextInt();
+        
+		in.close();
+ 
+		System.out.println(A*(B%10));
+		System.out.println(A*(B%100/10));
+		System.out.println(A*(B/100));
+		System.out.println(A*B);
+	}
+ 
 }
