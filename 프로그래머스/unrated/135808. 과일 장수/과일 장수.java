@@ -24,6 +24,7 @@ class Solution {
             }
         }
         return answer;
+        
     }
 }
 //k 사과품질
