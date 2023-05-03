@@ -12,27 +12,28 @@ public class Main {
         for(int i = 0; i<N; i++) {
             basket[i] = i+1;
         }
-        for(int I = 0; I<M; I++) {
-            int i = sc.nextInt() - 1;
-            int j = sc.nextInt() - 1;
-            int k = sc.nextInt() - 1;
-            int tmp = i;
-            for (int J = 0; J < j - i + 1; J++) {
-                if (k + J <= j) {
-                    rotationBasket[i + J] = basket[k + J];
-                } else {
-                    rotationBasket[i + J] = basket[tmp];
+
+        for(int i = 0; i<M; i++) {
+            int begin = sc.nextInt() - 1;
+            int end = sc.nextInt() - 1;
+            int mid = sc.nextInt() - 1;
+            int tmp = begin;
+            for(int j = 0; j < end - begin+1; j++){
+                if(j+mid <= end){
+                    rotationBasket[j+begin] = basket[j+mid];
+                }
+                else {
+                    rotationBasket[j+begin]  = basket[tmp];
                     tmp++;
                 }
             }
-            for(int K = 0; K < N; K++){
-                if(rotationBasket[K] != 0){
-                    basket[K] = rotationBasket[K];
-                }
+            for(int j = 0; j< N; j++){
+                if(rotationBasket[j] != 0)basket[j] = rotationBasket[j];
             }
         }
         for(int i = 0; i<N; i++){
-            System.out.print(basket[i] + " ");
+            sb.append(basket[i]).append(" ");
         }
+        System.out.println(sb);
     }
 }
