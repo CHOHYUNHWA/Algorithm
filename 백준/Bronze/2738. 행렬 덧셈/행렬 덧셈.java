@@ -8,16 +8,18 @@ public class Main {
         int N = sc.nextInt();
         int M = sc.nextInt();
         int[][] arr = new int[2*N][M];
-        for(int i = 0; i < 2*N; i++){
+        for(int i = 0; i < N; i++){
             for(int j = 0; j< M; j++){
                 arr[i][j] = sc.nextInt();
             }
         }
         for(int i = 0; i< N; i++){
             for(int j = 0; j< M; j++){
-                System.out.print(arr[i][j]+arr[i+N][j] + " ");
+                arr[i][j] += sc.nextInt();
+                sb.append(arr[i][j]).append(" ");
             }
-            System.out.print("\n");
+            sb.append("\n");
         }
+        System.out.println(sb);
     }
 }
