@@ -2,12 +2,20 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        Scanner sc = new Scanner(System.in);
-        int s = sc.nextInt();
-        int a = sc.nextInt();
-        String answer = Integer.toString(s,a).toUpperCase();
-        System.out.println(answer);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        StringBuilder ans = new StringBuilder();
+        while (n != 0) {
+            int temp = n % b;
+            if (temp < 10) ans.append((char)(temp + 48));
+            else ans.append((char)(temp + 55));
+            n /= b;
+        }
+        ans.reverse();
+        System.out.println(ans);
     }
 }
