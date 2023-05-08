@@ -8,14 +8,10 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int range = 2;
         int count = 1;
-        if(N == 1){
-            System.out.println(1);
-        } else {
-            while (N >= range) {
-                range = range + (count * 6);
-                count++;
-            }
-            System.out.println(count);
+        while (N >= range) {
+            range = range + (count * 6);
+            count++;
         }
+        System.out.println(count);
     }
 }
