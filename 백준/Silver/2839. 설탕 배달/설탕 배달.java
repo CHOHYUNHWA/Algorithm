@@ -5,29 +5,14 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        int tmp = N;
-        int count = 1;
-        int answer = 0;
-        if(N%5 == 0){
-            answer = N/5;
-        }
-        if(N%5 != 0 && N%3 == 0){
-            answer = N/3;
-        }
-        while(5*count <= N){
-            tmp = tmp - 5*count;
-            if(tmp%3 == 0) {
-                if (answer == 0 || answer > count+tmp/3) {
-                    answer = count + tmp / 3;
-                }
-            }
-            count ++;
-            tmp = N;
-        }
-        if(answer != 0){
-            System.out.println(answer);
-        } else {
+        if(N == 4 || N == 7){
             System.out.println(-1);
+        }else if(N%5 == 0){
+            System.out.println(N/5);
+        } else if(N%5 == 1 || N%5 == 3){
+            System.out.println(N/5 + 1);
+        } else if(N%5 == 2 || N%5 == 4){
+            System.out.println(N/5 + 2);
         }
     }
 }
