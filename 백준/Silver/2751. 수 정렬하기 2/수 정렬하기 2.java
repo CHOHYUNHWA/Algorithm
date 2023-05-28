@@ -6,13 +6,13 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
-        List<Integer> list = new ArrayList<>();
+        int[] arr = new int[N];
         for(int i = 0; i< N; i++){
-            list.add(Integer.parseInt(br.readLine()));
+            arr[i] = Integer.parseInt(br.readLine());
         }
-        Collections.sort(list);
+        Arrays.sort(arr);
         for(int i =0; i<N; i++){
-            sb.append(list.get(i)).append('\n');
+            sb.append(arr[i]).append('\n');
         }
         System.out.println(sb);
     }
