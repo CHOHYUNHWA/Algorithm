@@ -17,16 +17,11 @@ public class Main {
         Arrays.sort(arr, new Comparator<int[]>() {
             @Override
             public int compare(int[] e1, int[] e2) {
-                if (e1[0] > e2[0]) {
-                    return 1;
-                } else if (e1[0] < e2[0]) {
-                    return -1;
-                } else if (e1[0] == e2[0] && e1[1] > e2[1]) {
-                    return 1;
-                } else if (e1[0] == e2[0] && e1[1] < e2[1]) {
-                    return -1;
-                } else {
-                    return 0;
+                if(e1[0] == e2[0]) {
+                    return e1[1] - e2[1];
+                }
+                else {
+                    return e1[0] - e2[0];
                 }
             }
         });
