@@ -17,20 +17,12 @@ public class Main {
         }
         for (int i = 0; i < M; i++) {
             String tmp = br.readLine();
-            if(!isCheckInt(tmp)){
+            if(tmp.charAt(0) >= 65){
                 sb.append(map.get(tmp)).append('\n');
             } else {
                 sb.append(strArr[Integer.parseInt(tmp)]).append('\n');
             }
         }
         System.out.println(sb);
-    }
-    static boolean isCheckInt(String s){
-        try{
-            Integer.parseInt(s);
-        } catch (Exception e){
-            return false;
-        }
-        return true;
     }
 }
