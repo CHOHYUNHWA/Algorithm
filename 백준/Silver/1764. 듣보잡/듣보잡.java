@@ -1,5 +1,5 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -8,25 +8,20 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int M = N+Integer.parseInt(st.nextToken());
-        Map<String,Integer> map = new HashMap<String,Integer>();
-        for(int i = 0; i< M; i++){
+        Set<String> set = new HashSet<String>();
+        for(int i = 0; i< N; i++){
             String key = br.readLine();
-            if(map.get(key) != null){
-                map.merge(key,1,Integer::sum);
-            } else {
-                map.put(key, 1);
-            }
+            set.add(key);
         }
-        int count = 0;
         ArrayList<String> arr = new ArrayList<>();
-        for(String key : map.keySet()){
-            if(map.get(key)==2){
-                count++;
+        for(int i = 0; i<N; i++ ){
+            String key = br.readLine();
+            if(set.contains(key)){
                 arr.add(key);
             }
         }
         Collections.sort(arr);
-        sb.append(count).append('\n');
+        sb.append(arr.size()).append('\n');
         for(String a : arr){
             sb.append(a).append('\n');
         }
