@@ -12,19 +12,16 @@ public class Main {
         for (int i = 0; i < N; i++) {
             int t = Integer.parseInt(br.readLine());
             int count = 0;
-            for(int j = 2; j< t; j++){
+            for(int j = 2; j <= t/2; j++){
                 int tmp = t - j;
-                if(tmp == j && !prime[tmp]){
-                    count += 2;
-                } else if(!prime[tmp] && !prime[j]){
+                if(!prime[tmp] && !prime[j]){
                     count++;
                 }
             }
-            sb.append(count/2).append('\n');
+            sb.append(count).append('\n');
         }
         System.out.println(sb);
     }
-
     static void isPrime(boolean[] prime) {
         for (int i = 2; i < Math.sqrt(prime.length); i++) {
             if (prime[i]) {
