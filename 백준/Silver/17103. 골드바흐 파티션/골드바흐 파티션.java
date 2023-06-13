@@ -8,12 +8,12 @@ public class Main {
         prime[0] = prime[1] = true;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < N; i++) {
-            int t = Integer.parseInt(br.readLine());
+        int T = Integer.parseInt(br.readLine());
+        for (int i = 0; i < T; i++) {
+            int N = Integer.parseInt(br.readLine());
             int count = 0;
-            for(int j = 2; j <= t/2; j++){
-                int tmp = t - j;
+            for(int j = 2; j <= N/2; j++){
+                int tmp = N - j;
                 if(!prime[tmp] && !prime[j]){
                     count++;
                 }
