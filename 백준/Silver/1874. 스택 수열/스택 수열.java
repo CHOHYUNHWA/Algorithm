@@ -19,6 +19,8 @@ public class Main {
                 } else if(stack.empty() || stack.peek() <= element) {
                         stack.push(count++);
                         sb.append("+").append('\n');
+                    } else {
+                        break;
                     }
             }
         }
