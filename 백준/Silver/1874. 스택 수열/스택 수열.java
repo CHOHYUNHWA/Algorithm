@@ -6,28 +6,24 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
+        Stack<Integer> stack = new Stack<Integer>();
         int N = Integer.parseInt(br.readLine());
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        int count = 1;
-        for(int i = 0; i< N; i++) {
-            int element = Integer.parseInt(br.readLine());
-            for (int j = 0; j <= element; j++) {
-                    if (list.size() !=0 && element == list.get(list.size()-1)) {
-                    list.remove(list.size()-1);
-                    sb.append("-").append('\n');
-                    break;
-                } else if(list.size() == 0 || list.get(list.size()-1) <= element) {
-                        list.add(count++);
-                        sb.append("+").append('\n');
-                    } else {
-                        break;
-                    }
+        int count = 0;
+        while(N-- > 0){
+            int value = Integer.parseInt(br.readLine());
+            if(value > count){
+                for(int i = count + 1; i<= value; i++) {
+                    stack.push(i);
+                    sb.append("+").append('\n');
+                }
+                count = value;
+            } else if(stack.peek() != value){
+                System.out.println("NO");
+                return;
             }
+            stack.pop();
+            sb.append("-").append('\n');
         }
-        if(list.size() != 0){
-            System.out.println("NO");
-        } else {
-            System.out.println(sb);
-        }
+        System.out.println(sb);
     }
 }
