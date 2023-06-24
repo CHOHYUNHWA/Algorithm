@@ -11,48 +11,39 @@ public class Main {
             if(str.equals(".")){
                 break;
             }
-            if(match(str)){
-                sb.append("yes").append('\n');
-            } else{
-                sb.append("no").append('\n');
-            }
+                sb.append(match(str)).append('\n');
         }
         System.out.println(sb);
     }
-    static boolean match(String str){
+    static String match(String str){
         Stack<Character> stack = new Stack<Character>();
         for(int i = 0 ; i < str.length() ; i++){
-            if(str.charAt(i) == '[' || str.charAt(i) == '('){
-                stack.push(str.charAt(i));
-            } else if (str.charAt(i) == ']'){
-                if(stack.empty()){
-                    return false;
-                }
-                if(stack.peek() != '['){
-                    return false;
+            char c = str.charAt(i);
+            if(c == '[' || c == '('){
+                stack.push(c);
+            } else if (c == ']'){
+                if(stack.empty() || stack.peek() != '['){
+                    return "no";
                 } else if(stack.peek() == '['){
                     stack.pop();
                 }
             }
 
-            else if (str.charAt(i) == ')'){
-                if(stack.empty()){
-                    return false;
-                }
-                if(stack.peek() != '('){
-                    return false;
+            else if (c == ')'){
+                if(stack.empty() || stack.peek() != '('){
+                    return "no";
                 } else if(stack.peek() == '('){
                     if(stack.empty()){
-                        return false;
+                        return "no";
                     }
                     stack.pop();
                 }
             }
         }
         if(!stack.empty()){
-            return false;
+            return "no";
         } else {
-            return true;
+            return "yes";
         }
     }
 }
