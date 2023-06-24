@@ -22,9 +22,6 @@ public class Main {
     static boolean match(String str){
         Stack<Character> stack = new Stack<Character>();
         for(int i = 0 ; i < str.length() ; i++){
-            if(!str.contains("(") && !str.contains("[") && !str.contains("]") && !str.contains(")")){
-                return true;
-            }
             if(str.charAt(i) == '[' || str.charAt(i) == '('){
                 stack.push(str.charAt(i));
             } else if (str.charAt(i) == ']'){
