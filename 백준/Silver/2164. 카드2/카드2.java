@@ -1,3 +1,4 @@
+
 import java.util.*;
 import java.io.*;
 
@@ -11,15 +12,11 @@ public class Main {
         for(int i =1; i<= N; i++){
             queue.offer(i);
         }
-        while(true){
-            if(queue.size() == 1){
-                System.out.println(queue.peek());
-                return;
-            }
+        while(queue.size() > 1){
             queue.poll();
-            int tmp = queue.peek();
-            queue.poll();
+            int tmp = queue.poll();
             queue.offer(tmp);
         }
+        System.out.println(queue.peek());
     }
 }
