@@ -10,17 +10,14 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
         sb.append("<");
-        Queue<Integer> queue = new LinkedList<>();
-        Queue<Integer> answerQueue = new LinkedList<>();
+        LinkedList<Integer> list = new LinkedList<>();
         for(int i = 1; i <= N; i++){
-            queue.offer(i);
+            list.add(i);
         }
-        while(queue.size() != 0){
-            for(int i = 0; i < K-1; i++){
-                int tmp = queue.poll();
-                queue.offer(tmp);
-            }
-            sb.append(queue.poll()).append(", ");
+        int idx = 0;
+        while(list.size() > 0){
+            idx = (idx + (K - 1)) % list.size();
+            sb.append(list.remove(idx)).append(", ");
         }
         sb.setLength(sb.length()-2);
         sb.append(">");
