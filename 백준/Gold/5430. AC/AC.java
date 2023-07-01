@@ -24,6 +24,15 @@ public class Main {
 
         boolean reverse = false;
         ArrayDeque<Integer> deque = new ArrayDeque<>();
+        
+        if(strArr[0].equals("")  && p.contains("D")){
+            sb.append("error").append('\n');
+            return;
+        }
+        if(strArr[0].equals("")  && !p.contains("D")){
+            sb.append("[]").append('\n');
+            return;
+        }
 
         if(!strArr[0].equals("")){
             for(int i = 0; i < strArr.length; i++){
@@ -50,9 +59,9 @@ public class Main {
                 }
             }
         }
-        
+
         printAnswer(deque,reverse);
-        
+
     }
 
     static void printAnswer(ArrayDeque deque, boolean reverse){
