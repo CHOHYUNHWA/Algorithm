@@ -11,16 +11,14 @@ public class Main {
                 break;
             }
             boolean flag = true;
-            int j = N.length()-1;
             for(int i = 0; i < N.length()/2; i++){
-                if(N.charAt(i) != N.charAt(j)){
+                if(N.charAt(i) != N.charAt(N.length() -i -1)){
                     sb.append("no").append('\n');
                     flag = false;
                     break;
                 }
-                j--;
             }
-            if(flag == true) {
+            if(flag) {
                 sb.append("yes").append('\n');
             }
         }
