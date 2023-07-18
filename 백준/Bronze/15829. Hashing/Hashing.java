@@ -9,7 +9,7 @@ public class Main{
         long sum = 0;
         for(int i = 0; i < N; i++){
             int tmp = br.read();
-            sum += (tmp - 96) * (Math.pow(31, i));
+            sum += (tmp - 96) * ((long)Math.pow(31, i));
         }
         System.out.println(sum);
     }
