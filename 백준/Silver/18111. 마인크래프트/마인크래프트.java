@@ -1,53 +1,66 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 public class Main {
-    static int N, M, B;
-    static int time = Integer.MAX_VALUE;
-    static int[][] arr;
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
-        B = Integer.parseInt(st.nextToken());
-        arr = new int[N][M];
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < N; i++) {
-            st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < M; j++) {
-                arr[i][j] = Integer.parseInt(st.nextToken());
-                if (arr[i][j] > max) {
-                    max = arr[i][j];
-                }
-                if (arr[i][j] < min) {
-                    min = arr[i][j];
-                }
-            }
-        }
-        int floor = 0;
-        while (max >= min) {
-            int tmp = 0;
-            int block = B;
-            for (int i = 0; i < arr.length; i++) {
-                for (int j = 0; j < arr[i].length; j++) {
-                    if (arr[i][j] > max){
-                        block += (arr[i][j] - max);
-                        tmp += (arr[i][j] - max) * 2;
-                    } else if(arr[i][j] < max){
-                        block -= max - arr[i][j];
-                        tmp += max - arr[i][j];
-                    }
-                }
-            }
-            if(block >= 0 && time > tmp){
-                time = tmp;
-                floor = max;
-            }
-            max--;
-        }
-        System.out.println(time + " " + floor);
-    }
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
+		int b = Integer.parseInt(st.nextToken());
+		int map[] = new int[257];
+		int time = 99999999;
+		int height = 0;
+		for (int i = 0; i < n; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < m; j++) {
+				map[Integer.parseInt(st.nextToken())]++;
+			}
+		}
+		// 모든 높이 탐색
+		for (int i = 256; i >= 0; i--) {
+			int temp_time = 0;
+			int temp_b = b;
+			// 모든 높이에 있는 블럭
+			for (int j = 256; j >= 0; j--) {
+				if (map[j] == 0) {
+					continue;
+				}
+
+				if (j >= i) {
+					temp_time += map[j] * 2 * (j - i);
+				} else {
+					temp_time += map[j] * (i - j);
+
+				}
+				temp_b += map[j] * (j-i);
+			}
+//			System.out.println(temp_b);
+			if(temp_b<0) continue;
+			if (temp_time <= time) {
+				if(temp_time==time) {
+					height = Math.max(height, i);
+				}
+				else {
+					height=i;
+				}
+				time = temp_time;
+			}
+		}
+		System.out.println(time + " " + height);
+	}
 }
