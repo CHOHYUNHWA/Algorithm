@@ -8,41 +8,40 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         Set<Integer> set = new HashSet<>();
         while(N-- > 0){
-            String s = br.readLine();
-            String[] sArr = s.split(" ");
-            int tmp = 0;
-            if(sArr.length > 1) {
-                tmp = Integer.parseInt(sArr[1]);
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            String command = st.nextToken();
+            int n = 0;
+            if(st.hasMoreTokens()){
+                n = Integer.parseInt(st.nextToken());
             }
-            if(s.contains("add")){
-                set.add(tmp);
+            if(command.equals("add")){
+                set.add(n);
                 continue;
-            } else if(s.contains("remove")){
-                set.remove(tmp);
+            } else if(command.equals("remove")){
+                set.remove(n);
                 continue;
-            } else if(s.contains("check")){
-                if(set.contains(tmp)){
+            } else if(command.equals("check")){
+                if(set.contains(n)){
                     sb.append(1).append('\n');
                     continue;
                 } else {
                     sb.append(0).append('\n');
                     continue;
                 }
-            } else if(s.contains("toggle")){
-                if(set.contains(tmp)){
-                    set.remove(tmp);
+            } else if(command.equals("toggle")){
+                if(set.contains(n)){
+                    set.remove(n);
                     continue;
                 } else {
-                    set.add(tmp);
+                    set.add(n);
                     continue;
                 }
-
-            } else if(s.contains("all")){
-                for(int i = 0; i <= 20; i++){
+            } else if(command.equals("all")){
+                for(int i = 1; i <= 20; i++){
                     set.add(i);
                 }
                 continue;
-            } else if(s.contains("empty")){
+            } else if(command.equals("empty")){
                 set.clear();
                 continue;
             }
