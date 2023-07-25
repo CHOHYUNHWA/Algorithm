@@ -1,2 +1,45 @@
-# Algorithm
-This is a auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+# Algorithm 학습
+
+<br>
+
+## 🎖️학습 순서
+1. 백준 단계별로 풀어보기
+2. Solved.ac Class 1 - 3
+3. 알고리즘 기초 1/2 , 2/2
+
+<br>
+
+## 👑 백준 코딩 테스트
+### [ 백준 단계 1 - 12 ]
+1. 입출력과 사칙연산
+2. 조건문
+3. 반복문
+4. 1차원 배열
+5. 문자열
+6. 심화 1
+7. 2차원 배열
+8. 일반 수학 1
+9. 약수, 배수와 소수
+10. 기하: 직사각형과 삼각형
+11. 시간 복잡도
+12. 브루트 포스
+13. 정렬
+14. 집합과 맵
+15. 약수, 배수와 소수 2
+17. 조합론
+18. 심화 2
+19. 스택
+20. 큐, 덱
+21. 재귀
+25. 그리디 알고리즘
+
+### [ solved.ac Class 1 - 3 ]
+1. Class 1 - 완료
+1. Class 2 - 완료
+1. Class 3 - 진행중(23.7/25)
+
+### [ 알고리즘 기초 1/2, 2/2 ]
+1. 알고리즘 1
+1. 알고리즘 2
+
+
