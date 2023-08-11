@@ -29,7 +29,7 @@ public class Main {
                 }
             }
         }
-        bfs(doyeonX,doyeonY);
+        dfs(doyeonX,doyeonY);
         if(count == 0){
             System.out.println("TT");
         } else {
@@ -37,7 +37,7 @@ public class Main {
         }
     }
 
-    private static void bfs(int x, int y) {
+    private static void dfs(int x, int y) {
         visited[x][y] = true;
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{x,y});
