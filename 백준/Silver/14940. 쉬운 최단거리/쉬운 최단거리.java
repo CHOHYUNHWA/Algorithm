@@ -45,25 +45,34 @@ public class Main {
     }
 
     private static void bfs(int targetX, int targetY) {
-        Queue<int[]> queue = new LinkedList();
-        queue.add(new int[]{targetX,targetY});
+        Queue<Point> queue = new LinkedList();
+        queue.add(new Point(targetX, targetY));
         while (!queue.isEmpty()){
-            int[] spot = queue.poll();
+            Point current = queue.poll();
             for(int i = 0 ; i < 4; i++){
-                int cx = spot[0] + dx[i];
-                int cy = spot[1] + dy[i];
+                int nextX = current.x + dx[i];
+                int nextY = current.y + dy[i];
 
-                if(cx < 0 || cy < 0 || cx >=n || cy >= m){
+                if(nextX < 0 || nextY < 0 || nextX >=n || nextY >= m){
                     continue;
                 }
-                if(map[cx][cy] != -1){
+                if(map[nextX][nextY] != -1){
                     continue;
                 }
-                if(map[cx][cy] == -1){
-                    map[cx][cy] = map[spot[0]][spot[1]]+1;
+                if(map[nextX][nextY] == -1){
+                    map[nextX][nextY] = map[current.x][current.y]+1;
                 }
-                queue.add(new int[]{cx,cy});
+                queue.add(new Point(nextX,nextY));
             }
+        }
+    }
+    static class Point{
+        int x;
+        int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
         }
     }
 }
