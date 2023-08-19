@@ -7,28 +7,19 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         int M = Integer.parseInt(br.readLine());
-        String[] S = br.readLine().split("");
-        String[] P = new String[3];
-        int count = 0;
+        char[] arr = br.readLine().toCharArray();
+        int[] dp = new int[M];
         int result = 0;
-        P[0] = "I";
-        P[1] = "O";
-        P[2] = "I";
-
-
-        for(int i = 0; i < S.length-2; i++){
-            if(S[i].equals(P[0]) && S[i+1].equals(P[1]) && S[i+2].equals(P[2])){
-                count++;
-                if(count == N){
-                    count--;
+        
+        for(int i =1; i < M -1; i++){
+            if(arr[i] == 'O' && arr[i+1] == 'I'){
+                dp[i+1] = dp[i-1] + 1;
+                
+                if(dp[i+1] >= N && arr[i-2*N+1] =='I'){
                     result++;
                 }
-                i++;
-            } else {
-                count = 0;
             }
         }
         System.out.println(result);
-
     }
 }
