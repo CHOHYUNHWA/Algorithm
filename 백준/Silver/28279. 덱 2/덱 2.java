@@ -17,46 +17,59 @@ public class Main {
             }
             if(command == 1){
                 deque.addFirst(num);
+                continue;
             }
             if(command == 2){
                 deque.addLast(num);
+                continue;
             }
             if(command == 3){
                 if(deque.isEmpty()){
                     sb.append(-1).append('\n');
+                    continue;
                 } else {
                     sb.append(deque.pollFirst()).append('\n');
+                    continue;
                 }
             }
             if(command == 4){
                 if(deque.isEmpty()){
                     sb.append(-1).append('\n');
+                    continue;
                 } else {
                     sb.append(deque.pollLast()).append('\n');
+                    continue;
                 }
             }
             if(command == 5){
                 sb.append(deque.size()).append('\n');
+                continue;
             }
             if(command == 6){
                 if(deque.isEmpty()){
                     sb.append(1).append('\n');
+                    continue;
                 } else {
                     sb.append(0).append('\n');
+                    continue;
                 }
             }
             if(command == 7){
                 if(deque.isEmpty()){
                     sb.append(-1).append('\n');
+                    continue;
                 } else {
                     sb.append(deque.getFirst()).append('\n');
+                    continue;
                 }
             }
             if(command == 8){
                 if(deque.isEmpty()){
                     sb.append(-1).append('\n');
+                    continue;
                 } else {
                     sb.append(deque.getLast()).append('\n');
+                    continue;
                 }
             }
         }
