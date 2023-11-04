@@ -1,34 +1,35 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+        while(true){
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int scene_num=1;
-		while(true) {
-			String AB=" ";
-			int n = sc.nextInt();
-			if(n==0) break;
-			
-			sc.nextLine();
-			String[] name=new String[n];
-			for(int i=0; i<n;i++) {
-				name[i]=sc.nextLine();
-			}
-			ArrayList<String> k = new ArrayList<String>();
-			for(int i=0;i<2*n-1;i++) {
-				String num=sc.next();
-				if(k.contains(num))
-					k.remove(num);
-				else
-					k.add(num);
-				AB = sc.nextLine();
-			}
-			int tmp = Integer.parseInt(k.get(0));
-			System.out.println(scene_num+" "+name[tmp-1]);
-			scene_num++;
-		}
-	}
+            int n = Integer.parseInt(br.readLine());
+            if(n==0){
+                break;
+            }
+            String[] nameArr = new String[n+1];
+            int[] arr = new int[n+1];
+            for(int i =1; i<=n; i++){
+                nameArr[i] = br.readLine();
+            }
 
+            for(int j = 0; j < 2*n-1; j++){
+                StringTokenizer st = new StringTokenizer(br.readLine());
+                arr[Integer.parseInt(st.nextToken())]++;
+            }
+
+
+            for(int i = 1; i < nameArr.length; i++){
+                if(arr[i] % 2 != 0 ){
+                    sb.append(++count).append(" ").append(nameArr[i]).append('\n');
+                }
+            }
+        }
+        System.out.println(sb);
+    }
 }
