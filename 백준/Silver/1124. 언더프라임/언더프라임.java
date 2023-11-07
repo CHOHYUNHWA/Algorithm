@@ -15,6 +15,9 @@ public class Main {
             int tmp = 2;
             int count = 0;
             int element = i;
+            if(!isPrime[element]){
+                continue;
+            }
             while(element != 1){
                 if(element % tmp == 0){
                     element = element/tmp;
