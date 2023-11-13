@@ -27,8 +27,9 @@ public class Main {
                 }
             }
             if(command.charAt(0) == 'B'){
-                if(!leftStr.isEmpty())
-                leftStr.pop();
+                if(!leftStr.isEmpty()) {
+                    leftStr.pop();
+                }
             }
             if(command.charAt(0) == 'P'){
                 leftStr.push(String.valueOf(command.charAt(2)));
