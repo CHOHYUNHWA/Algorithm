@@ -3,7 +3,6 @@ import java.util.*;
 
 public class Main {
     static int N;
-    static int[][] chess;
     static boolean[][] visited;
     static int[] mx = {-2,-2,0,0,2,2};
     static int[] my = {-1,+1,-2,2,-1,1};
@@ -13,7 +12,6 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
         result = -1;
-        chess = new int[N][N];
         visited = new boolean[N][N];
         StringTokenizer st = new StringTokenizer(br.readLine());
         startX = Integer.parseInt(st.nextToken());
